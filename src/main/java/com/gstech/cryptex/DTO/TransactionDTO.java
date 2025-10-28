@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 public record TransactionDTO(
         String order,
-        String crypto,
-        BigDecimal amountUsdt,
+        Long crypto,
+        BigDecimal amountUsd,
         BigDecimal priceCrypto
 
 ) {

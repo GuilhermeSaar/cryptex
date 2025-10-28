@@ -8,7 +8,7 @@ public interface TransactionProjection {
     LocalDateTime getDate();
     String getOrder();
     String getCrypto();
-    BigDecimal getAmountUsdt();
+    BigDecimal getAmountUsd();
     BigDecimal getPriceCrypto();
     BigDecimal getAmountCrypto();
 }

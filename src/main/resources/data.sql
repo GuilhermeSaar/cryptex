@@ -1,29 +1,12 @@
+INSERT INTO tb_wallet (total_invested, total_sales, total_value) VALUES (0.00, 0.00, 0.00);
+INSERT INTO tb_user (name, email, password, wallet_id) VALUES ('nomeTeste', 'emailteste@gmail.com', '123456', 1);
 
-INSERT INTO tb_user (name, email, password) VALUES ('nomeTeste', 'emailteste@gmail.com', '123456');
+
+INSERT INTO tb_crypto (name, price_usd) VALUES ('Bitcoin', 68000.00);
+INSERT INTO tb_crypto (name, price_usd) VALUES ('Ethereum', 3500.00);
+INSERT INTO tb_crypto (name, price_usd) VALUES ('Cardano', 0.45);
+INSERT INTO tb_crypto (name, price_usd) VALUES ('Solana', 160.00);
+INSERT INTO tb_crypto (name, price_usd) VALUES ('Ripple', 0.52);
 
 
-INSERT INTO tb_transaction (order_name, date, crypto, amount_usdt, price_crypto, amount_crypto, user_id) VALUES
- ('Buy BTC', '2025-01-15T08:23:15', 'BTC', 4500.00, 30000.00, 0.1500, 1),
- ('Sell ETH', '2025-01-20T14:57:42', 'ETH', 1800.00, 1900.00, 0.9474, 1),
- ('Buy BTC', '2025-02-11T11:12:05', 'BTC', 6000.00, 31000.00, 0.1935, 1),
- ('Sell ETH', '2025-02-25T22:40:30', 'ETH', 2100.00, 2050.00, 1.0244, 1),
- ('Buy BTC', '2025-03-05T09:05:55', 'BTC', 7000.00, 32000.00, 0.2188, 1),
- ('Sell ETH', '2025-03-18T19:48:10', 'ETH', 1500.00, 2100.00, 0.7143, 1),
- ('Buy BTC', '2025-04-07T07:30:25', 'BTC', 5200.00, 31500.00, 0.1651, 1),
- ('Sell ETH', '2025-04-13T16:15:50', 'ETH', 2300.00, 2200.00, 1.0455, 1),
- ('Buy BTC', '2025-05-14T12:05:35', 'BTC', 4800.00, 30500.00, 0.1574, 1),
- ('Sell ETH', '2025-05-22T21:50:20', 'ETH', 2500.00, 2250.00, 1.1111, 1),
- ('Buy BTC', '2024-06-10T10:10:10', 'BTC', 5000.00, 29000.00, 0.1724, 1),
- ('Sell ETH', '2024-06-15T14:20:35', 'ETH', 2000.00, 1800.00, 1.1111, 1),
- ('Buy BTC', '2024-07-20T09:30:45', 'BTC', 5500.00, 29500.00, 0.1864, 1),
- ('Sell ETH', '2024-07-25T18:15:55', 'ETH', 2200.00, 1850.00, 1.1892, 1),
- ('Buy BTC', '2023-08-05T11:05:25', 'BTC', 6000.00, 31000.00, 0.1935, 1),
- ('Sell ETH', '2023-08-18T20:45:30', 'ETH', 2500.00, 2000.00, 1.2500, 1),
- ('Buy BTC', '2023-09-12T08:55:15', 'BTC', 6200.00, 31500.00, 0.1968, 1),
- ('Sell ETH', '2023-09-28T17:30:40', 'ETH', 2400.00, 2050.00, 1.1707, 1),
- ('Buy BTC', '2023-10-02T10:15:25', 'BTC', 5000.00, 30000.00, 0.1667, 1),
- ('Sell ETH', '2023-10-10T22:05:50', 'ETH', 1800.00, 1900.00, 0.9474, 1),
- ('Buy BTC', '2022-11-14T12:45:30', 'BTC', 4800.00, 30500.00, 0.1574, 1),
- ('Sell ETH', '2022-11-20T19:50:15', 'ETH', 2600.00, 2300.00, 1.1304, 1),
- ('Buy BTC', '2022-12-05T09:25:40', 'BTC', 5000.00, 31000.00, 0.1613, 1),
- ('Sell ETH', '2022-12-15T21:15:05', 'ETH', 2700.00, 2400.00, 1.1250, 1);
+
