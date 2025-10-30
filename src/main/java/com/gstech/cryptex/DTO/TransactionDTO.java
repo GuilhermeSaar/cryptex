@@ -5,8 +5,6 @@ import java.math.BigDecimal;
 public record TransactionDTO(
         String order,
         Long crypto,
-        BigDecimal amountUsd,
-        BigDecimal priceCrypto
-
+        BigDecimal amountUsd
 ) {
 }

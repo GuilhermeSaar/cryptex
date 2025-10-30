@@ -21,6 +21,8 @@ public class Crypto {
     private String name;
     private BigDecimal priceUsd; // aqui vou chamar uma api externa para os preços
 
+
+
     public Long getId() {
         return id;
     }

@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TransactionalService {
@@ -26,6 +27,7 @@ public class TransactionalService {
     CryptoRepository cryptoRepository;
     @Autowired
     CryptoPositionService cryptoPositionService;
+
 
 
 
@@ -52,9 +54,7 @@ public class TransactionalService {
     @Transactional
     public void recordTransaction(Long id, TransactionDTO data) {
 
-        User user = userRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("User with id " + id + " does not exist")
-        );
+        Optional<User> user = userRepository.findById(id);
 
         Crypto crypto = cryptoRepository.findById(data.crypto()).orElseThrow(
                 () -> new IllegalArgumentException("Crypto with id " + id + " does not exist")
@@ -64,11 +64,10 @@ public class TransactionalService {
                 data.order(),
                 crypto,
                 data.amountUsd(),
-                data.priceCrypto(),
-                user
+                user.get()
         );
 
         transactionalRepository.save(newTransaction);
-        cryptoPositionService.saveCryptoPosition(crypto.getId(), newTransaction.getAmountCrypto(), user.getWallet(), crypto);
+        cryptoPositionService.saveCryptoPosition(newTransaction.getAmountUsd(), newTransaction.getAmountCrypto(), user.get().getWallet(), crypto);
     }
 }

@@ -17,16 +17,18 @@ public class CryptoPositionService {
     private CryptoPositionRepository repository;
 
     @Transactional
-    public void saveCryptoPosition(Long id, BigDecimal amount, Wallet wallet, Crypto crypto) {
+    public void saveCryptoPosition(BigDecimal amountUsdt, BigDecimal quantityCrypto, Wallet wallet, Crypto crypto) {
 
-        var position = repository.findById(id).orElse(
-                new CryptoPosition()
-        );
+        var position = repository.findByWalletAndCrypto(wallet, crypto)
+                .map(x -> {
+                    x.addCryptoQuantity(quantityCrypto);
+                    x.sumTotalInvested(amountUsdt);
+                    return x;
+                })
+                .orElseGet(() -> {
+                    return new CryptoPosition(amountUsdt, quantityCrypto, wallet, crypto);
+                });
 
-        position.addCryptoQuantity(amount);
-        position.setCrypto(crypto);
-        position.setWallet(wallet);
         repository.save(position);
-
     }
 }

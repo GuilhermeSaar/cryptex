@@ -38,12 +38,12 @@ public class Transaction {
     private User user;
 
 
-    public Transaction(String order, Crypto crypto, BigDecimal amountUsd, BigDecimal priceCrypto, User user) {
+    public Transaction(String order, Crypto crypto, BigDecimal amountUsd, User user) {
         this.order = order;
         this.date = LocalDateTime.now();
         this.crypto = crypto;
         this.amountUsd = amountUsd;
-        this.priceCrypto = priceCrypto;
+        this.priceCrypto = crypto.getPriceUsd();
         this.amountCrypto = calculateCryptoQuantity();
         this.user = user;
     }
@@ -51,7 +51,6 @@ public class Transaction {
 
         return this.amountUsd.divide(this.priceCrypto, 8, RoundingMode.HALF_UP);
     }
-
 
     public Long getId() {
         return id;
